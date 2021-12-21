@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
-  Image,
   Platform,
-  Keyboard,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
   StyleSheet,
+  PermissionsAndroid,
 } from 'react-native';
 import ApiYoutube from './apiYoutube';
 
@@ -67,7 +62,7 @@ export default class Maps extends Component {
           style={styles.map}
           initialRegion={this.props.maps}
           onPress={(e, i) => this.onMapPress(e, i)}>
-          <Marker coordinate={this.props.maps} title='tets' />
+          <Marker coordinate={this.props.maps} />
         </MapView>
         <ApiYoutube />
       </View>
@@ -79,6 +74,9 @@ const styles = StyleSheet.create({
   view: {
     width: '100%',
     height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   map: {
     flex: 1,
@@ -137,5 +135,4 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
   },
-
 });

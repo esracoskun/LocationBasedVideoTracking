@@ -11,6 +11,7 @@ import Modal from 'react-native-modal';
 
 import IconF from 'react-native-vector-icons/Feather';
 import IconM from 'react-native-vector-icons/MaterialIcons';
+import IconA from 'react-native-vector-icons/AntDesign';
 
 import MiniCard from './miniCard';
 
@@ -24,7 +25,6 @@ export default class ApiYoutube extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <View>
         <Modal
@@ -43,9 +43,13 @@ export default class ApiYoutube extends Component {
                 </View>
                 <View style={styles.modalTopView}>
                   <View style={styles.topLeft}>
-                      <Text style={styles.cancelText}>
-                        Youtube Video
-                      </Text>
+                    <IconA
+                      name='youtube'
+                      size={20}
+                      style={{ color:'#ff0000' }}/>
+                    <Text style={styles.cancelText}>
+                      Video List
+                    </Text>
                   </View>
                   <View style={{ paddingRight: 10, paddingBottom: 5 }}>
                       <TouchableOpacity
@@ -67,6 +71,7 @@ export default class ApiYoutube extends Component {
                             videoId={item.id.videoId}
                             title={item.snippet.title}
                             channel={item.snippet.channelTitle}
+                            channelID={item.snippet.channelId}
                           />
                       }}
                       keyExtractor={item=>item.id.videoId}/>
@@ -112,32 +117,33 @@ const styles = StyleSheet.create({
     top: -15
   },
   cancelButton: {
-      padding: 5,
-      borderRadius: 50,
-      backgroundColor: '#eef3f5',
+    padding: 5,
+    borderRadius: 50,
+    backgroundColor: '#eef3f5',
   },
   topLeft: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center'
+    marginLeft: 15,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   iconLeft: {
-      color: '#d3d3d3',
-      paddingLeft: 5,
+    color: '#d3d3d3',
+    paddingLeft: 5,
   },
   cancelText: {
-      color: '#575757',
-      fontWeight: 'bold',
-      textAlign: 'center',
-      paddingLeft: 2,
-      fontSize: 15
+    color: '#575757',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingLeft: 2,
+    fontSize: 15,
+    marginLeft: 3,
   },
   modalContainer: {
     height: '100%',
   },
   modalContent: {
-    backgroundColor: '#525252',
     height: '100%',
     display: 'flex',
     alignItems: 'center',

@@ -26,7 +26,8 @@ export default function apiTester(state = initialState, action = {}) {
     case types.MODAL_VISIBLE:
       return {
         ...state,
-        modalVisible: action.payload
+        modalVisible: action.payload,
+        loading: action.payload === true ? false : true
       }
     default:
       return state;
