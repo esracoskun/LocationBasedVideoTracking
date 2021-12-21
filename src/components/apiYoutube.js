@@ -2,20 +2,17 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  Image,
-  Platform,
-  Keyboard,
-  TextInput,
   ScrollView,
   TouchableOpacity,
   StyleSheet,
+  FlatList,
 } from 'react-native';
 import Modal from 'react-native-modal';
 
 import IconF from 'react-native-vector-icons/Feather';
-import IconA from 'react-native-vector-icons/AntDesign';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import IconM from 'react-native-vector-icons/MaterialIcons';
+
+import MiniCard from './miniCard';
 
 export default class ApiYoutube extends Component {
   constructor(props) {
@@ -63,7 +60,16 @@ export default class ApiYoutube extends Component {
                 </View>
                 <ScrollView contentContainerStyle={styles.modalContainer}>
                   <View style={styles.modalContent}>
-                    <Text>sdf</Text>
+                    <FlatList
+                      data={this.props?.apiYoutube?.data}
+                      renderItem={({item}) => {
+                          return <MiniCard
+                            videoId={item.id.videoId}
+                            title={item.snippet.title}
+                            channel={item.snippet.channelTitle}
+                          />
+                      }}
+                      keyExtractor={item=>item.id.videoId}/>
                   </View>
                 </ScrollView>
               </View>
@@ -131,10 +137,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   modalContent: {
-    backgroundColor: 'red',
+    backgroundColor: '#525252',
     height: '100%',
     display: 'flex',
     alignItems: 'center',
   },
-
 });
