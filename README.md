@@ -19,5 +19,6 @@ To run the project in the development environment;
 
 - The `yarn start` command must be run to run the apk received for development.
 
-
-https://user-images.githubusercontent.com/53093667/147154673-b5b32cfe-6159-4919-8d75-5be61ce7c2c7.mp4
+<p align='center'>
+  <img src="https://user-images.githubusercontent.com/53093667/147156516-5415177c-2803-4e76-9022-e91cf7370f02.gif">
+</p>
