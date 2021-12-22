@@ -4,9 +4,10 @@ import axios from 'axios';
 export function* handleApiRequest(action) {
   console.log(action)
   try {
+    // Enter your own API KEY in the [YOTUBE_API_KEY] field
     const apiConfig = {
       method: 'get',
-      url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&location=${action.payload.maps.latitude+'%2C'+action.payload.maps.longitude}&locationRadius=10km&maxResults=${action.payload.max_result}&type=video&key=AIzaSyCOjYReMHhXc9XPz3gpAvT4C7FhyyptJVs`,
+      url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&location=${action.payload.maps.latitude+'%2C'+action.payload.maps.longitude}&locationRadius=10km&maxResults=${action.payload.max_result}&type=video&key=[YOUR_YOUTUBE_API_KEY]`,
     };
 
     const response = yield call(axios, apiConfig);
