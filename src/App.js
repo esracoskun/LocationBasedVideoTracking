@@ -6,11 +6,17 @@ import { View, StyleSheet } from 'react-native';
 import Maps from './components/maps';
 import * as appActions from './redux/actions';
 import ApiYoutube from './components/apiYoutube';
+import SplashScreen from 'react-native-splash-screen'
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
 
   render() {
     const { state, actions } = this.props;

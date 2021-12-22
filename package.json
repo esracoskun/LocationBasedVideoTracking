@@ -16,6 +16,7 @@
     "react-native": "^0.66.4",
     "react-native-maps": "^0.29.4",
     "react-native-modal": "^13.0.0",
+    "react-native-splash-screen": "^3.3.0",
     "react-native-vector-icons": "^9.0.0",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
