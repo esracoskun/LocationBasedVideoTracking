@@ -6,7 +6,7 @@ export function* handleApiRequest(action) {
   try {
     const apiConfig = {
       method: 'get',
-      url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&location=${action.payload.maps.latitude+'%2C'+action.payload.maps.longitude}&locationRadius=10km&maxResults=${action.payload.max_result}&q=song&type=video&key=AIzaSyAcdzZhXi4PAppXDGu4-08IcNspbkSKAKQ`,
+      url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&location=${action.payload.maps.latitude+'%2C'+action.payload.maps.longitude}&locationRadius=10km&maxResults=${action.payload.max_result}&q=song&type=video&key=AIzaSyCw2ohNdfERwon0f_Il_a0nR2Iu9lSPTAE`,
     };
 
     const response = yield call(axios, apiConfig);

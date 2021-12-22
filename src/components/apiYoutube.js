@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   FlatList,
+  ActivityIndicator,
 } from 'react-native';
 import Modal from 'react-native-modal';
 
@@ -18,11 +19,43 @@ import MiniCard from './miniCard';
 export default class ApiYoutube extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      loading: false,
+    };
+
+    this.getMoreVideo = this.getMoreVideo.bind(this);
+    this.footerIndicator = this.footerIndicator.bind(this);
   }
 
   cancelModal() {
     this.props.modalVisible(false);
   }
+
+  getMoreVideo() {
+    this.setState({ loading: true });
+    var lcoationData = {
+      latitude: this.props?.maps?.latitude,
+      longitude: this.props?.maps?.longitude,
+    }
+    var maxResult = this.props?.apiYoutube?.pageinfo.resultsPerPage + 10;
+
+    if ( maxResult >= this.props?.apiYoutube?.pageinfo.resultsPerPage) {
+      this.props?.apiRequest({max_result: maxResult, maps: lcoationData});
+      this.setState({ loading: false })
+    }
+  }
+
+  footerIndicator() {
+    return this.state.loading ? (
+      <View
+        style={{
+          paddingVertical: 20,
+        }} >
+        <ActivityIndicator animating size="large" />
+      </View>
+    ) : null
+  };
 
   render() {
     return (
@@ -66,6 +99,8 @@ export default class ApiYoutube extends Component {
                   <View style={styles.modalContent}>
                     <FlatList
                       data={this.props?.apiYoutube?.data}
+                      onEndReached={this.getMoreVideo}
+                      ListFooterComponent={this.footerIndicator}
                       renderItem={({item}) => {
                           return <MiniCard
                             videoId={item.id.videoId}
