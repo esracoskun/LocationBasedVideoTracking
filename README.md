@@ -18,3 +18,6 @@ To run the project in the development environment;
 - In the project, apk is taken to develop with the `./gradlew assembleDebug` command in the LocationBasedVideoTracking/android directory. Live application apk is taken with `./gradlew assembleRelease` command.
 
 - The `yarn start` command must be run to run the apk received for development.
+
+
+https://user-images.githubusercontent.com/53093667/147154673-b5b32cfe-6159-4919-8d75-5be61ce7c2c7.mp4
