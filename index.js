@@ -22,7 +22,6 @@ sagaMiddleware.run(sagaRoot);
 
 export default class App extends Component {
   render() {
-    console.log('test')
     return (
       <Provider store={store}>
         <SampleApp/>

@@ -8,7 +8,6 @@ const initialState = {
 };
 
 export default function apiTester(state = initialState, action = {}) {
-  console.log(action)
   switch (action.type) {
     case types.API_REQUEST_SUCCEEDED:
       return {

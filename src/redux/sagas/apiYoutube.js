@@ -2,7 +2,6 @@ import {call, put, takeEvery} from 'redux-saga/effects';
 import axios from 'axios';
 
 export function* handleApiRequest(action) {
-  console.log(action)
   try {
     // Enter your own API KEY in the [YOTUBE_API_KEY] field
     const apiConfig = {
